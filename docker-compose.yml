@@ -1,0 +1,34 @@
+services:
+  db:
+    image: postgres:15
+    container_name: wallet_db
+    environment:
+      POSTGRES_DB: wallet_db
+      POSTGRES_USER: wallet_user
+      POSTGRES_PASSWORD: wallet_password
+    ports:
+      - "5433:5432"   # снаружи доступен на 5433, внутри на 5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U wallet_user -d wallet_db"]
+      interval: 5s
+      retries: 5
+      timeout: 5s
+
+  web:
+    build: .
+    container_name: wallet_web
+    command: >
+      sh -c "python manage.py migrate &&
+             python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  postgres_data:

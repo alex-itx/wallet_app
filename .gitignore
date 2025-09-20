@@ -1,0 +1,55 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+var/
+wheels/
+*.manifest
+*.spec
+
+# Virtual env
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Django
+*.log
+*.pot
+*.pyc
+*.sqlite3
+db.sqlite3
+/media
+/staticfiles
+/static
+
+# VSCode / PyCharm
+.vscode/
+.idea/
+*.iml
+
+# Tests
+.coverage
+htmlcov/
+.pytest_cache/
+
+# Docker
+*.pid
+*.seed
+*.pid.lock
+docker-compose.override.yml
+
+# System files
+.DS_Store
+Thumbs.db
