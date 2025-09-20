@@ -19,7 +19,7 @@ Wallet Service — это REST API приложение для управлен�
 
 ### 1. Клонировать репозиторий
 ```bash
-git clone https://github.com/<your-username>/wallet_app.git
+git clone https://github.com/alex-itx/wallet_app.git
 cd wallet_app
 ```
 
